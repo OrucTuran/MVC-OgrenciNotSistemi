@@ -1,0 +1,23 @@
+﻿@using OgrenciNotMVC.Models.EntitiyFramework
+@model List<TblDersler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ders ID</th>
+        <th>Ders Adı</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DersID.ToString()</td>
+                <td>@item.DersAd.ToString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

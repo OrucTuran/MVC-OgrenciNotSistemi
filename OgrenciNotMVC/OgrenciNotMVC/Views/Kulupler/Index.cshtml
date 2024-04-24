@@ -1,0 +1,27 @@
+﻿@using OgrenciNotMVC.Models.EntitiyFramework
+@model List<TblKulupler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kulüp ID</th>
+        <th>Kulüp Adı</th>
+        <th>Kulüp Kontenjen</th>
+    </tr>
+    <tbody>
+        @foreach (var kulup in Model)
+        {
+            <tr>
+                <td>@kulup.KulupID.ToString()</td>
+                <td>@kulup.KulupAd.ToString()</td>
+                <td>@kulup.KulupKontenjan.ToString()</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

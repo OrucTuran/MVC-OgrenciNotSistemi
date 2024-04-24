@@ -1,0 +1,29 @@
+﻿@using OgrenciNotMVC.Models.EntitiyFramework
+@model List<TblOgrenciler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Öğrenci ID</th>
+        <th>Öğrenci Ad</th>
+        <th>Öğrenci SoyAd</th>
+        <th>Öğrenci Kulüp</th>
+        <th>Öğrenci Cinsiyet</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OgrenciID</td>
+                <td>@item.OgrAd</td>
+                <td>@item.OgrSoyad</td>
+                <td>@item.OgrKulup</td>
+                <td>@item.OgrCinsiyet</td>
+            </tr>
+        }
+    </tbody>
+</table>

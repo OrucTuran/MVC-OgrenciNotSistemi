@@ -1,0 +1,38 @@
+﻿@using OgrenciNotMVC.Models.EntitiyFramework
+@model List<TblNotlar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Not ID</th>
+        <th>Ders ID</th>
+        <th>Öğrenci ID</th>
+        <th>Sınav 1</th>
+        <th>Sınav 2</th>
+        <th>Sınav 3</th>
+        <th>Proje</th>
+        <th>Ortalama</th>
+        <th>Durum</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NotID</td>
+                <td>@item.DersID</td>
+                <td>@item.OgrID</td>
+                <td>@item.Sinav1</td>
+                <td>@item.Sinav2</td>
+                <td>@item.Sinav3</td>
+                <td>@item.Proje</td>
+                <td>@item.Ortalama</td>
+                <td>@item.Durum</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
