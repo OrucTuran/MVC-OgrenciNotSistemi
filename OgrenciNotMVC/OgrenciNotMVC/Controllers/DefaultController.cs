@@ -16,5 +16,19 @@ namespace OgrenciNotMVC.Controllers
             var dersler = db.TblDersler.ToList();
             return View(dersler);
         }
+
+        [HttpGet]
+        public ActionResult YeniDers()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult YeniDers(TblDersler p)
+        {
+            db.TblDersler.Add(p);
+            db.SaveChanges();
+            return View();
+        }
     }
 }
