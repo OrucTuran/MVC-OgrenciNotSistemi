@@ -17,6 +17,7 @@
         <th>Proje</th>
         <th>Ortalama</th>
         <th>Durum</th>
+        <th>Güncelle</th>
     </tr>
     <tbody>
         @foreach (var item in Model)
@@ -31,8 +32,12 @@
                 <td>@item.Proje</td>
                 <td>@item.Ortalama</td>
                 <td>@item.Durum</td>
+                <td>
+                    <a href="/Notlar/Sil/@item.NotID"class="btn btn-warning">Güncelle</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<a href="/Notlar/YeniSinav/" class="btn btn-primary">Yeni Sınav Girişi</a>
 
