@@ -28,8 +28,18 @@ namespace OgrenciNotMVC.Controllers
         {
             db.TblKulupler.Add(p);
             db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+        public ActionResult Sil(int id)
+        {
+            var silinecekKulup = db.TblKulupler.Find(id);
+            db.TblKulupler.Remove(silinecekKulup);
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+        public ActionResult KulupGetir()
+        {
             return View();
         }
-
     }
 }

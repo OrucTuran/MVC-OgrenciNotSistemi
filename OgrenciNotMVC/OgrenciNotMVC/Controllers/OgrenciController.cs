@@ -40,5 +40,19 @@ namespace OgrenciNotMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Sil(int id)
+        {
+            var silinecekOgrenci = db.TblOgrenciler.Find(id);
+
+            var notlar = db.TblNotlar.Where(n => n.OgrID == id);
+            db.TblNotlar.RemoveRange(notlar);
+
+            db.TblOgrenciler.Remove(silinecekOgrenci);
+
+            db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

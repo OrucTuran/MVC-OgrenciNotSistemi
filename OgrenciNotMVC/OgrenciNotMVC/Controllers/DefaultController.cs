@@ -30,5 +30,16 @@ namespace OgrenciNotMVC.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult Sil(int id)
+        {
+            var silinecekDers = db.TblDersler.Find(id);
+            db.TblDersler.Remove(silinecekDers);
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+        public ActionResult DersGetir()
+        {
+            return View();
+        }
     }
 }
