@@ -11,6 +11,7 @@
         <th>Kulüp ID</th>
         <th>Kulüp Adı</th>
         <th>Kulüp Kontenjen</th>
+        <th>İşlemler</th>
     </tr>
     <tbody>
         @foreach (var kulup in Model)
@@ -19,6 +20,10 @@
                 <td>@kulup.KulupID.ToString()</td>
                 <td>@kulup.KulupAd.ToString()</td>
                 <td>@kulup.KulupKontenjan.ToString()</td>
+                <td>
+                    <a href="/Kulupler/Sil/@kulup.KulupID" class="btn btn-danger">Sil</a>
+                    <a href="/Kulupler/Sil/@kulup.KulupID" style="margin-left:15px" class="btn btn-success">Güncelle</a>
+                </td>
             </tr>
         }
     </tbody>

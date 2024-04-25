@@ -13,6 +13,7 @@
         <th>Öğrenci SoyAd</th>
         <th>Öğrenci Kulüp</th>
         <th>Öğrenci Cinsiyet</th>
+        <th>İşlemler</th>
     </tr>
     <tbody>
         @foreach (var item in Model)
@@ -23,6 +24,10 @@
                 <td>@item.OgrSoyad</td>
                 <td>@item.OgrKulup</td>
                 <td>@item.OgrCinsiyet</td>
+                <td>
+                    <a href="/Ogrenci/Sil/@item.OgrenciID" class="btn btn-danger">Sil</a>
+                    <a href="/Ogrenci/Sil/@item.OgrenciID" class="btn btn-success" style="margin-left:15px">Güncelle</a>
+                </td>
             </tr>
         }
     </tbody>
