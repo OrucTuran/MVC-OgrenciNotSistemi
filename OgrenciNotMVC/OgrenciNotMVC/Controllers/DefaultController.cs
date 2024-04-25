@@ -37,9 +37,11 @@ namespace OgrenciNotMVC.Controllers
             db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
-        public ActionResult DersGetir()
+        public ActionResult DersGetir(int id)
         {
-            return View();
+            var guncellenecekDers = db.TblDersler.Find(id);
+            return View(nameof(DersGetir), guncellenecekDers);
         }
+    
     }
 }

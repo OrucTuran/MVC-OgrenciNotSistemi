@@ -54,5 +54,11 @@ namespace OgrenciNotMVC.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public ActionResult OgrenciGetir(int id)
+        {
+            var guncellenecekOgrenci = db.TblOgrenciler.Find(id);
+            return View(nameof(OgrenciGetir), guncellenecekOgrenci);
+        }
     }
 }

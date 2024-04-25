@@ -1,0 +1,34 @@
+﻿@model OgrenciNotMVC.Models.EntitiyFramework.TblOgrenciler
+@{
+    ViewBag.Title = "OgrenciGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Guncelle", "Ogrenci", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Ad</label>
+        @Html.TextBoxFor(k => k.OgrAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Soyad</label>
+        @Html.TextBoxFor(k => k.OgrSoyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Fotoğraf</label>
+        @Html.TextBoxFor(k => k.OgrFotograf, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Kulüp</label>
+        @Html.TextBoxFor(k => k.TblKulupler.KulupAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Cinsiyet</label>
+        @Html.TextBoxFor(k => k.OgrCinsiyet, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(k => k.OgrenciID)
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}

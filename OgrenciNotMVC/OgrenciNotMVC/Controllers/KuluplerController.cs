@@ -37,9 +37,10 @@ namespace OgrenciNotMVC.Controllers
             db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
-        public ActionResult KulupGetir()
+        public ActionResult KulupGetir(int id)
         {
-            return View();
+            var guncellenecekKulup = db.TblKulupler.Find(id);
+            return View(nameof(KulupGetir), guncellenecekKulup);
         }
     }
 }

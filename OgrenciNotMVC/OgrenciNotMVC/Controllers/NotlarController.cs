@@ -28,5 +28,10 @@ namespace OgrenciNotMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult NotGetir(int id)
+        {
+            var guncellenecekNot = db.TblNotlar.Find(id);
+            return View(nameof(NotGetir), guncellenecekNot);
+        }
     }
 }
