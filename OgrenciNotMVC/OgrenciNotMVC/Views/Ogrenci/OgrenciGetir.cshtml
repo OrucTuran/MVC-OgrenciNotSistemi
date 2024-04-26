@@ -21,7 +21,9 @@
     </div>
     <div class="form-group">
         <label>Kulüp</label>
-        @Html.TextBoxFor(k => k.OgrKulup, new { @class = "form-control" })
+        @*@Html.TextBoxFor(k => k.OgrKulup, new { @class = "form-control" })*@
+        @Html.DropDownListFor(x => x.TblKulupler.KulupID, (List<SelectListItem>)ViewBag.deger,
+          new { @class = "form-control" })
     </div>
     <div class="form-group">
         <label>Cinsiyet</label>

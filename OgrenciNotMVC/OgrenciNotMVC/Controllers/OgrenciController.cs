@@ -11,7 +11,6 @@ namespace OgrenciNotMVC.Controllers
     {
         // GET: Ogrenci 
         DbMvcOkulEntities db = new DbMvcOkulEntities();
-        List<SelectListItem> degerler = new List<SelectListItem>();
         public ActionResult Index()
         {
             var ogrenci = db.TblOgrenciler.ToList();
@@ -21,12 +20,12 @@ namespace OgrenciNotMVC.Controllers
         [HttpGet]
         public ActionResult OgrenciEkle()
         {
-            degerler = (from x in db.TblKulupler.ToList()
-                        select new SelectListItem
-                        {
-                            Text = x.KulupAd,
-                            Value = x.KulupID.ToString()
-                        }).ToList();
+            List<SelectListItem> degerler = (from x in db.TblKulupler.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = x.KulupAd,
+                                                 Value = x.KulupID.ToString()
+                                             }).ToList();
             ViewBag.deger = degerler;
             return View();
         }
@@ -58,6 +57,15 @@ namespace OgrenciNotMVC.Controllers
         public ActionResult OgrenciGetir(int id)
         {
             var guncellenecekOgrenci = db.TblOgrenciler.Find(id);
+
+            List<SelectListItem> degerler = (from x in db.TblKulupler.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = x.KulupAd,
+                                                 Value = x.KulupID.ToString()
+                                             }).ToList();
+            ViewBag.deger = degerler;
+
             return View(nameof(OgrenciGetir), guncellenecekOgrenci);
         }
         public ActionResult Guncelle(TblOgrenciler p)
@@ -65,7 +73,7 @@ namespace OgrenciNotMVC.Controllers
             var ogrenci = db.TblOgrenciler.Find(p.OgrenciID);
             ogrenci.OgrAd = p.OgrAd;
             ogrenci.OgrSoyad = p.OgrSoyad;
-            ogrenci.OgrFotograf= p.OgrFotograf;
+            ogrenci.OgrFotograf = p.OgrFotograf;
             ogrenci.OgrCinsiyet = p.OgrCinsiyet;
             ogrenci.OgrKulup = p.OgrKulup;
             db.SaveChanges();
