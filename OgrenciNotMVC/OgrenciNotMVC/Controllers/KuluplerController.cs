@@ -42,5 +42,12 @@ namespace OgrenciNotMVC.Controllers
             var guncellenecekKulup = db.TblKulupler.Find(id);
             return View(nameof(KulupGetir), guncellenecekKulup);
         }
+        public ActionResult Guncelle(TblKulupler p)
+        {
+            var kulup = db.TblKulupler.Find(p.KulupID);
+            kulup.KulupAd = p.KulupAd;
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

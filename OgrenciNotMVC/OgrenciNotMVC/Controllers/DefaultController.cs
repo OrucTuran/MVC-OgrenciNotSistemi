@@ -42,6 +42,12 @@ namespace OgrenciNotMVC.Controllers
             var guncellenecekDers = db.TblDersler.Find(id);
             return View(nameof(DersGetir), guncellenecekDers);
         }
-    
+        public ActionResult Guncelle(TblDersler p)
+        {
+            var ders = db.TblDersler.Find(p.DersID);
+            ders.DersAd = p.DersAd;
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

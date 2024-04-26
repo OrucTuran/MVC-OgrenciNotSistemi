@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Guncelle", "Notlar", FormMethod.Post))
+@using (Html.BeginForm("NotGetir", "Notlar", FormMethod.Post))
 {
     <div class="form-group">
         <label>Öğrenci Ad</label>
-        @Html.TextBoxFor(k => k.TblOgrenciler.OgrAdSoyad, new { @class = "form-control" })
+        @Html.TextBoxFor(k => k.OgrID, new { @class = "form-control" })
     </div>
     <div class="form-group">
         <label>Sınav 1</label>
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
         <label>Ortalama</label>
-        @Html.TextBoxFor(k => k.Ortalama, new { @class = "form-control" })
+        @Html.TextBoxFor(k => k.Ortalama, new { @Value = @ViewBag.ort, @class = "form-control", @readonly = "readonly" })
     </div>
     <div class="form-group">
         <label>Durum</label>
@@ -37,9 +37,8 @@
 
     @Html.HiddenFor(k => k.NotID)
     <div style="margin-top:15px">
-        <button class="btn btn-primary">Hesapla</button>
-    </div>
-    <div style="margin-top:15px">
-        <button class="btn btn-info">Güncelle</button>
+        <button type="submit" name="islem" value="Hesapla" class="btn btn-primary">Ortalama Hesapla</button>
+        <br />
+        <button type="submit" name="islem" value="NotGuncelle" class="btn btn-info" style="margin-top:15px">Güncelle</button>
     </div>
 }

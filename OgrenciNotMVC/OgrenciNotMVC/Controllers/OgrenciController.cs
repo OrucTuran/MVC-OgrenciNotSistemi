@@ -60,5 +60,16 @@ namespace OgrenciNotMVC.Controllers
             var guncellenecekOgrenci = db.TblOgrenciler.Find(id);
             return View(nameof(OgrenciGetir), guncellenecekOgrenci);
         }
+        public ActionResult Guncelle(TblOgrenciler p)
+        {
+            var ogrenci = db.TblOgrenciler.Find(p.OgrenciID);
+            ogrenci.OgrAd = p.OgrAd;
+            ogrenci.OgrSoyad = p.OgrSoyad;
+            ogrenci.OgrFotograf= p.OgrFotograf;
+            ogrenci.OgrCinsiyet = p.OgrCinsiyet;
+            ogrenci.OgrKulup = p.OgrKulup;
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
