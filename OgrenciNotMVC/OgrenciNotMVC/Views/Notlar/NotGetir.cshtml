@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label>Durum</label>
-        @Html.TextBoxFor(k => k.Durum, new { @class = "form-control" })
+        @Html.TextBoxFor(k => k.Durum, new { @Value = @ViewBag.durm, @class = "form-control" })
     </div>
 
     @Html.HiddenFor(k => k.NotID)

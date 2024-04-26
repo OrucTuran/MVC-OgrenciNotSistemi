@@ -23,7 +23,7 @@ namespace OgrenciNotMVC.Models.EntitiyFramework
         public int OgrenciID { get; set; }
         public string OgrAd { get; set; }
         public string OgrSoyad { get; set; }
-        public string OgrAdSoyad => $"{OgrAd} {OgrSoyad}";
+        //public string OgrAdSoyad => $"{OgrAd} {OgrSoyad}";
         public string OgrFotograf { get; set; }
         public string OgrCinsiyet { get; set; }
         public Nullable<byte> OgrKulup { get; set; }

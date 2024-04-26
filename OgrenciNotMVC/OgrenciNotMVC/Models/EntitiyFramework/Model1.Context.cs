@@ -27,7 +27,8 @@ namespace OgrenciNotMVC.Models.EntitiyFramework
     
         public virtual DbSet<TblDersler> TblDersler { get; set; }
         public virtual DbSet<TblKulupler> TblKulupler { get; set; }
-        public virtual DbSet<TblNotlar> TblNotlar { get; set; }
         public virtual DbSet<TblOgrenciler> TblOgrenciler { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TblNotlar> TblNotlar { get; set; }
     }
 }

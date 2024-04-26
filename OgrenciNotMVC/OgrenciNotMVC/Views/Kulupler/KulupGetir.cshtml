@@ -9,9 +9,13 @@
 {
     <div class="form-group">
         <label>Kulüp Adı</label>
-        @Html.TextBoxFor(k=>k.KulupAd,new{ @class="form-control"})
+        @Html.TextBoxFor(k => k.KulupAd, new { @class = "form-control" })
     </div>
-    @Html.HiddenFor(k=>k.KulupID)
+    <div class="form-group">
+        <label>Kulüp Kontenjanı</label>
+        @Html.TextBoxFor(k => k.KulupKontenjan, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(k => k.KulupID)
     <div style="margin-top:15px">
         <button class="btn btn-info">Güncelle</button>
     </div>

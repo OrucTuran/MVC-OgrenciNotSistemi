@@ -28,7 +28,7 @@ namespace OgrenciNotMVC.Controllers
         {
             db.TblDersler.Add(p);
             db.SaveChanges();
-            return View();
+            return RedirectToAction(nameof(Index));
         }
         public ActionResult Sil(int id)
         {

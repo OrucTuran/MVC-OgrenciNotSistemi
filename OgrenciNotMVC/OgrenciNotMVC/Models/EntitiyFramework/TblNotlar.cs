@@ -22,7 +22,7 @@ namespace OgrenciNotMVC.Models.EntitiyFramework
         public Nullable<byte> Sinav3 { get; set; }
         public Nullable<byte> Proje { get; set; }
         public Nullable<decimal> Ortalama { get; set; }
-        public Nullable<bool> Durum { get; set; }
+        public string Durum { get; set; }
     
         public virtual TblDersler TblDersler { get; set; }
         public virtual TblOgrenciler TblOgrenciler { get; set; }

@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DbMvcOkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="TblDersler">
     <Key>
       <PropertyRef Name="DersID" />
@@ -27,7 +37,7 @@
     <Property Name="Sinav3" Type="tinyint" />
     <Property Name="Proje" Type="tinyint" />
     <Property Name="Ortalama" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="Durum" Type="bit" />
+    <Property Name="Durum" Type="nvarchar" MaxLength="5" />
   </EntityType>
   <EntityType Name="TblOgrenciler">
     <Key>
@@ -77,6 +87,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DbMvcOkulModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblDersler" EntityType="Self.TblDersler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblKulupler" EntityType="Self.TblKulupler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblNotlar" EntityType="Self.TblNotlar" Schema="dbo" store:Type="Tables" />

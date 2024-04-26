@@ -46,6 +46,7 @@ namespace OgrenciNotMVC.Controllers
         {
             var kulup = db.TblKulupler.Find(p.KulupID);
             kulup.KulupAd = p.KulupAd;
+            kulup.KulupKontenjan = p.KulupKontenjan;
             db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

@@ -42,8 +42,11 @@ namespace OgrenciNotMVC.Controllers
             {
                 //islem1
                 decimal ortalama = (sinav1 + sinav2 + sinav3 + proje) / 4;
-
+                // Durumu belirleme işlemi
+                p.Durum = ortalama > 50 ? "Geçti" : "Kaldı";
                 ViewBag.ort = ortalama;
+                ViewBag.durm = p.Durum;
+                //p.Durum = ortalama > 50 ? "True" : "False";
 
             }
             else if (model.islem == "NotGuncelle")
@@ -55,6 +58,10 @@ namespace OgrenciNotMVC.Controllers
                 notlar.Sinav3 = p.Sinav3;
                 notlar.Proje = p.Proje;
                 notlar.Ortalama = p.Ortalama;
+
+                // Burada Durum değerini güncellemeyi unutmayın
+                notlar.Durum = p.Ortalama > 50 ? "Geçti" : "Kaldı";
+                ViewBag.durm = notlar.Durum;
                 db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
